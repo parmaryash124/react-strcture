@@ -3,8 +3,10 @@ import React, { useState } from "react";
 const StateHook = () => {
   const [value, setValue] = useState(10);
   const increment = () => {
-    if (value >= 20) return;
-    setValue(value + 1);
+    if (value >= 20) setValue(value + 1);
+    else return;
+    // if (value >= 20) return;
+    // setValue(value + 1);
   };
   const decrement = () => {
     if (value <= 1) return;

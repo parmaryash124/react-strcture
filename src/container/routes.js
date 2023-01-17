@@ -17,6 +17,10 @@ const EditStudent = lazy(() => import("../pages/EditStudent"));
 const HookForm = lazy(() => import("../pages/HookForm"));
 const Tictac = lazy(() => import("../pages/Tictac"));
 const UseMemoHook = lazy(() => import("../pages/Usememohook"));
+const UseRefHook = lazy(() => import("../pages/UseRefHook"));
+const UseCallbackHook = lazy(() => import("../pages/UseCallbackHook"));
+const UseReducerHook = lazy(() => import("../pages/UseReducer"));
+const CustomHook = lazy(() => import("../pages/CustomHook"));
 
 const Routing = () => {
   return (
@@ -33,13 +37,18 @@ const Routing = () => {
         }
       >
         {/* <Route path="/" element={<Tictac />} /> */}
+        <Route path="/" element={<HookForm />} />
         <Route path="/usestate" element={<StateHook />} />
         <Route path="/groceries" element={<Groceries />} />
         <Route path="/displayList" element={<DisplayList />} />
         <Route path="/studentList" element={<StudentList />} />
         <Route path="/edit/:id" element={<EditStudent />} />
         <Route path="/hookform" element={<HookForm />} />
-        <Route path="/usememo" element={< UseMemoHook/>} />
+        <Route path="/usememo" element={<UseMemoHook />} />
+        <Route path="/userefhook" element={<UseRefHook />} />
+        <Route path="/usecallbackhook" element={<UseCallbackHook />} />
+        <Route path="/usereducehook" element={<UseReducerHook />} />
+        <Route path="/customhook" element={<CustomHook />} />
         {/* <Route index path="/dashboard" element={<Dashboard />} />
         <Route path="/my-account" element={<MyAccount />} />
         <Route path="/" element={<Navigate replace to="/dashboard" />} /> */}

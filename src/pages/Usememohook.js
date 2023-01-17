@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 
 const expensiveCalculation = (num) => {
-  console.log("Calculating...");
+  console.log("Calculating... ");
   for (let i = 0; i < 1000000000; i++) {
     num += 1;
   }
@@ -9,11 +9,13 @@ const expensiveCalculation = (num) => {
 };
 
 // usememo runs only when their dependencies is updated.
+
+// when  memo value is updated then only usememo function is called.
 const Usememohook = () => {
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState([]);
-  // const calculation = expensiveCalculation(count);
-  const calculation = useMemo(() => expensiveCalculation(count), [count]);
+  const calculation = expensiveCalculation(count);
+  // const calculation = useMemo(() => expensiveCalculation(count), [count]);
 
   const increment = () => {
     setCount((c) => c + 1);

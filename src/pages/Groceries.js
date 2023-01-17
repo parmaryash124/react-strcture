@@ -24,16 +24,14 @@ const Groceries = () => {
   return (
     <>
       {productArray.map(({ id, product, quantity, price }) => {
-        return (
-          <>
-            <div key={id}>
-              <div>{product}</div>
-              <div>{quantity}</div>
-              <div>{price}</div>
-              <div>total :{quantity * price}</div>
-            </div>
-          </>
-        );
+        <>
+          <div key={id}>
+            <div>{product}</div>
+            <div>{quantity}</div>
+            <div>{price}</div>
+            <div>total :{quantity * price}</div>
+          </div>
+        </>;
       })}
       <h3> Grand total :{finalSum} </h3>
     </>

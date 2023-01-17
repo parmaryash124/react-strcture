@@ -1,33 +1,29 @@
-// import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
+import { useForm } from "react-hook-form";
 
-// const schema = yup.object({
-//   firstName: yup.string().required(),
-//   age: yup.number().positive().integer().required(),
-//   gender: yup.required(),
-// });
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-// export default function HookForm() {
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm({
-//     resolver: yupResolver(schema),
-//   });
-//   const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => console.log(data);
 
-//   return (
-//     <form onSubmit={handleSubmit(onSubmit)}>
-//       <input {...register("firstName")} />
-//       <p>{errors.firstName?.message}</p>
-//       <input {...register("age")} />
-//       <p>{errors.age?.message}</p>
-//       Gender: Male <input type="radio" {...register("gender")} />
-//       {/* Female <input {...register("gender")} type="radio"/> <br></br> */}
-//       <p>{errors.gender?.message}</p>
-//       <input type="submit" />
-//     </form>
-//   );
-// }
+  console.log(watch("example")); // watch input value by passing the name of it
+
+  return (
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      <input defaultValue="test" {...register("example", { required: true })} />
+      {errors.example && <span> this is required</span>}
+      {/* include validation with required or other standard HTML validation rules */}
+      <input {...register("exampleRequired", { required: true })} />
+      {/* errors will return when field validation fails  */}
+      {errors.exampleRequired && <span>This field is required</span>}
+
+      <input type="submit" />
+    </form>
+  );
+}
