@@ -7,11 +7,11 @@ const Footer = lazy(() => import("./footer"));
 const Layout = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main>
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

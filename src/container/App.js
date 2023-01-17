@@ -1,13 +1,14 @@
 import React, { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./routes";
-import { ErrorBoundary } from "../Error/index";
+import { ErrorBoundary } from "../components/Error/index";
+
 // import axios from "axios";
 // import { Provider } from "react-redux";
 // import { store } from "../Redux/store";
 // import Loader from "../components/common/loader";
 // import { setupAxios } from "../utils";
-const { PUBLIC_URL } = process.env.dev;
+// const { PUBLIC_URL } = process.env.dev;
 
 // setupAxios(axios, store);
 
@@ -17,7 +18,7 @@ const AppContainer = () => (
     {/* <Suspense fallback={<Loader isSuspense />}> */}
     <Suspense>
       {/* <Loader>  */}
-      <BrowserRouter basename={PUBLIC_URL}>
+      <BrowserRouter>
         <Routes />
       </BrowserRouter>
       {/* </Loader> */}
